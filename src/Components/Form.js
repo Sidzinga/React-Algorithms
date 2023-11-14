@@ -33,11 +33,10 @@ let cannot = input.canArrange + " cannot be rearranged into a palindrome"
 
 const handleSubmit = (e) =>{
     e.preventDefault()
-    let checkWord = (input.Palindrome);
-    let rearranged = (input.canArrange);
+   ;
 
-    let scrambledWord = rearrangePalindrome(checkWord)
-  let word = palindrome(rearranged);
+    let scrambledWord = rearrangePalindrome(input.canArrange)
+  let word = palindrome(input.Palindrome);
 
 
 if (word === true){

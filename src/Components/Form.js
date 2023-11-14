@@ -4,8 +4,9 @@ import { palindrome, rearrangePalindrome } from "./functions";
 
 function Palindrome(){
 
-const [input, setInput] = useState('');
-const [input2,setInput2] = useState("");
+const [input, setInput] = useState({ check:""
+, rearange:""});
+
 const [answer, setAnswer] = useState("");
 const[answer1,setAnswer1] = useState('')
 
@@ -14,23 +15,31 @@ const[answer1,setAnswer1] = useState('')
 
 const handleChange = (e) => {
 e.preventDefault()
-setInput(e.target.value)
-setInput2(e.target.value)
-console.log(input2 + " in2")
-console.log(input + " in1")
+
+const value = e.target.value
+const name = e.target.name
+setInput(values => ({...values, [name]:value}))
+
+
 }
 
-let isPalindrome = input + " is a " + "palindrome";
-let notPalindrome = input + " is not a " + "palindrome"; 
-let can = input2 + " can be rearranged into a palindrome"
-let cannot = input2 + " cannot be rearranged into a palindrome"
+
+let isPalindrome = input.Palindrome + " is a " + "palindrome";
+let notPalindrome = input.Palindrome + " is not a " + "palindrome"; 
+let can = input.canArrange + " can be rearranged into a palindrome"
+let cannot = input.canArrange + " cannot be rearranged into a palindrome"
 
 
 
 const handleSubmit = (e) =>{
     e.preventDefault()
-    let scrambledWord = rearrangePalindrome(input2)
-  let word = palindrome(input);
+    let checkWord = (input.Palindrome);
+    let rearranged = (input.canArrange);
+
+    let scrambledWord = rearrangePalindrome(checkWord)
+  let word = palindrome(rearranged);
+
+
 if (word === true){
 
 setAnswer(isPalindrome)
@@ -39,21 +48,25 @@ else{
     setAnswer(notPalindrome)
 }
 if(scrambledWord === true){
-
+setAnswer1(can)
   
 }
+else{
+  setAnswer1(cannot)
+}
   console.log(answer + answer1)
+
 }
 
 
-//
+
 
 return(<><div><form onSubmit={handleSubmit} >
-    <input className="input" value={input} onChange={handleChange} name="Palindrome" />
-    <input className="input" value={input2} onChange={handleChange} name ="canArrange"/>
+    <input className="input" value={input.Palindrome} onChange={handleChange} name="Palindrome" />
+    <input className="input" value={input.canArrange} onChange={handleChange} name ="canArrange"/>
 <button type="submit" onClick={handleSubmit}>Submit</button>
 
-    </form> <div className="display"><h1>{answer}</h1><br/></div></div></>
+    </form> <div className="display"><h1>{answer}</h1><br/><h1>{answer1}</h1></div></div></>
     )
 }
 export default Palindrome

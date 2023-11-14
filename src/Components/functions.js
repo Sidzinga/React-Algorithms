@@ -1,20 +1,18 @@
 import React from "react"
 
 export function palindrome(str){
+ 
     let shrt = str.toLowerCase().replaceAll(/\W|_/g,'')
  let rvrs = shrt.split('').reverse().join('')
- console.log(rvrs === shrt)
+
 return rvrs === shrt
 }
 
-export 
-
-
-function rearrangePalindrome(str){
+export function rearrangePalindrome(str){
 
 
 
-let capCheck = [] 
+// let capCheck = [] 
 let short = str.toLowerCase().replaceAll(/\W|_/g,'') 
 let split = short.split('') 
 
@@ -24,7 +22,7 @@ let count = []
 
 let i 
 let confirmation =[] 
-let splitStr = str.split('') 
+// let splitStr = str.split('') 
 let last 
 
 
@@ -58,12 +56,7 @@ confirmation.push(count[i])
    } 
  }
  
- console.log(count)
- console.log(index)
-console.log(confirmation)
-console.log(confirmation.length)
-
-console.log(rearrange)
+ 
 
 
 
@@ -73,17 +66,17 @@ console.log(rearrange)
 
 
 let result
-if (confirmation.length == 1 || confirmation.length == 0){
+if (confirmation.length === 1 || confirmation.length === 0){
   
-   result = confirmation.length == 1 || confirmation.length == 0
+   result = confirmation.length === 1 || confirmation.length === 0
 }
 else if (confirmation.length > 1 && confirmation.length !== 0){
   
-   result = (confirmation.length == 1 || confirmation.length == 0)
+   result = (confirmation.length === 1 || confirmation.length === 0)
 }
 
 if(index[0] % 2 !== 0 && index){}
-console.log(result)
+
  return result
 
 }
